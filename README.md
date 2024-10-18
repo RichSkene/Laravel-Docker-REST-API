@@ -33,4 +33,8 @@ In a Kubernetes like deployment, to connect Nginx to the container code, a named
 
 Stater project used for Laravel base at version 11.9.
 
-Create a new folder in the root directory of the project called **.env** and copy the contents of **.env.example**. Either create manually an APP Key for the **.env** or run: `php artisan key:generate` on the app container once docker is running and the APP_KEY value will be added for you.
+Create a new folder in the root directory of the project called **.env** and copy the contents of **.env.example**. Either manually create an APP Key for the **.env** or run: `php artisan key:generate` on the app container once docker is running and the APP_KEY value will be added for you.
+
+### Migrations & Seeders
+
+The project includes DB migrations to sync the schema of the project. To run the migrations run: `php artisan migrate:fresh`, you can also add the `--seed` flag to the fresh migrate command in order to run the DB seeder, which will fill the DB with test data, including a test User and Pages.
