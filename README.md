@@ -38,3 +38,15 @@ Create a new folder in the root directory of the project called **.env** and cop
 ### Migrations & Seeders
 
 The project includes DB migrations to sync the schema of the project. To run the migrations run: `php artisan migrate:fresh`, you can also add the `--seed` flag to the fresh migrate command in order to run the DB seeder, which will fill the DB with test data, including a test User and Pages.
+
+### REST API
+
+3 routes exist in the REST API:
+
+-   **/user/create-token/**: POST - Accesible by anyone but required email and password in the body on the request. This route will create an auth token used to access protected routes.
+-   **/pages/**: GET - Protected by sanctum and must be provided with AUTH BEARER in the header. This route will return all pages in the system.
+-   **/pages/{slug}**: GET - Protected by sanctum and must be provided with AUTH BEARER in the header. This route will return a single page based on the pages slug.
+
+## Postman
+
+A Postman collection export exists in the root of the project. Import this file in Postman, create a token and update the AUTH BEARER token in the pages routes to authenticate.
